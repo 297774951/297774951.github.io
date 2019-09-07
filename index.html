@@ -276,7 +276,7 @@
                 
               
 
-              <time title="创建时间：2019-09-07 14:40:16 / 修改时间：16:59:09" itemprop="dateCreated datePublished" datetime="2019-09-07T14:40:16+08:00">2019-09-07</time>
+              <time title="创建时间：2019-09-07 14:40:16 / 修改时间：18:19:11" itemprop="dateCreated datePublished" datetime="2019-09-07T14:40:16+08:00">2019-09-07</time>
             </span>
           
             
@@ -297,13 +297,15 @@
       
           <p>题目：</p>
 <p>给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。</p>
-<p>你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。</p>
-<h2 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a>解题思路：</h2><p>利用python的字典模仿哈希表，首先将数组所有的值与索引打入字典，然后对于每一个值与target相减，如果存在，就返回。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hashmap=&#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> ind,num <span class="keyword">in</span> enumerate(nums): </span><br><span class="line">        hashmap[num] = ind</span><br><span class="line">    <span class="keyword">for</span> i,num <span class="keyword">in</span> enumerate(nums):</span><br><span class="line">        j = hashmap.get(target - num)   get函数根据键返回值</span><br><span class="line">        <span class="keyword">if</span> j <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> i!=j:</span><br><span class="line">            <span class="keyword">return</span> [i,j]</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">seq = [&apos;one&apos;, &apos;two&apos;, &apos;three&apos;]     # enumerate的使用</span><br><span class="line">for i, element in enumerate(seq): # 第一个值是索引 第二</span><br><span class="line">...    print(i, seq[i])			  # 个是值</span><br><span class="line">... </span><br><span class="line">0 one</span><br><span class="line">1 two</span><br><span class="line">2 three</span><br></pre></td></tr></table></figure>
-
-
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/07/LeetCode日记1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -356,7 +358,7 @@
                 
               
 
-              <time title="创建时间：2019-09-07 14:40:16 / 修改时间：16:59:22" itemprop="dateCreated datePublished" datetime="2019-09-07T14:40:16+08:00">2019-09-07</time>
+              <time title="创建时间：2019-09-07 14:40:16 / 修改时间：18:19:23" itemprop="dateCreated datePublished" datetime="2019-09-07T14:40:16+08:00">2019-09-07</time>
             </span>
           
             
@@ -377,10 +379,15 @@
       
           <h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><p>给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。</p>
 <p>（注意:假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−231,  231 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。）</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverse</span><span class="params">(self, x: int)</span> -&gt; int:</span></span><br><span class="line">    res = list(str(x))</span><br><span class="line">     res.reverse()</span><br><span class="line">     <span class="comment"># 判断 第一项是否为0</span></span><br><span class="line">     <span class="keyword">if</span> res[<span class="number">0</span>]==<span class="number">0</span>:</span><br><span class="line">         res.pop(<span class="number">0</span>)</span><br><span class="line">     <span class="comment"># 转为str</span></span><br><span class="line">     ans = <span class="string">''</span>.join(res[:<span class="number">-1</span>])</span><br><span class="line"></span><br><span class="line">     <span class="comment"># 判断最后一项</span></span><br><span class="line">     <span class="keyword">if</span> res[<span class="number">-1</span>] == <span class="string">'-'</span>:</span><br><span class="line">         ans = <span class="string">'-'</span>+ans</span><br><span class="line">     <span class="keyword">else</span>:</span><br><span class="line">         ans += res[<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">     <span class="comment"># 转为 int</span></span><br><span class="line">     ans = int(ans)</span><br><span class="line">     <span class="keyword">if</span>  <span class="number">-2</span>**<span class="number">31</span> &lt;=ans&lt;= <span class="number">2</span>**<span class="number">31</span><span class="number">-1</span>:</span><br><span class="line">         <span class="keyword">return</span> ans</span><br><span class="line">     <span class="keyword">else</span>:</span><br><span class="line">         <span class="keyword">return</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a>解题思路：</h2><p>先将输入的数字转化为字符型的列表， 然后一次判断各种条件 最后转化为int</p>
-
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/07/LeetCode日记2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -444,7 +451,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-07 18:02:10" itemprop="dateModified" datetime="2019-09-07T18:02:10+08:00">2019-09-07</time>
+                <time title="修改时间：2019-09-07 18:18:49" itemprop="dateModified" datetime="2019-09-07T18:18:49+08:00">2019-09-07</time>
               </span>
             
           
@@ -462,20 +469,15 @@
       
           <p>记录一下自己喜欢的国产游戏《古剑奇谭》，也记录下玩耍时的快乐</p>
 <p><img src="/../images/1.jpg" alt="1"></p>
-<p><img src="/../images/2.jpg" alt="2"></p>
-<p><img src="/../images/3.jpg" alt="3"></p>
-<p><img src="/../images/4.jpg" alt="4"></p>
-<p><img src="/../images/5.jpg" alt="5"></p>
-<p>云无月，又冷又酷</p>
-<p><img src="/../images/6.jpg" alt="6"></p>
-<p><img src="/../images/13.jpg" alt="13"></p>
-<p>记忆的黑白色</p>
-<p><img src="/../images/14.jpg" alt="14"></p>
-<p><img src="/../images/15.jpg" alt="15"></p>
-<p>皮影戏，创意超棒</p>
-<p><img src="/../images/16.jpg" alt="1"></p>
-<p><img src="/../images/17.jpg" alt="1"></p>
-
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/04/古剑奇谭/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -539,7 +541,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-07 10:34:18" itemprop="dateModified" datetime="2019-09-07T10:34:18+08:00">2019-09-07</time>
+                <time title="修改时间：2019-09-07 18:19:04" itemprop="dateModified" datetime="2019-09-07T18:19:04+08:00">2019-09-07</time>
               </span>
             
           
@@ -559,9 +561,6 @@
 <p>​                 x=1:3   x=x’ 将数组转置 （<code>linspace</code> 和 <code>:</code> 运算符都可创建行向量。但是，您可以使用转置运算符 (<code>&#39;</code>) 将行向量转换为列向量。）</p>
 <h6 id="函数："><a href="#函数：" class="headerlink" title="函数："></a>函数：</h6><p>​                 x=rand(5，2)   指创建一个5行2列的随机数矩阵</p>
 <p>​                 x=zeros(6,3)   指创建一个6行3列的全0矩阵</p>
-<p>​                v=data(6,3)    v=data数组的第6行第3列元素</p>
-<p>​                 v=data(end-1,3)   v=data数组的倒数第2行第3列的值</p>
-<p>​                density=x(:,2)   density=x数组的第2列全部元素</p>
           <!--noindex-->
           
             <div class="post-button text-center">
