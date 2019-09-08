@@ -151,7 +151,7 @@ template {
   color: #fff;
 }
 body {
-  background: #eee;
+  background: #fffff0;
   color: #555;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1em;
@@ -1678,7 +1678,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #6317de;
+  background: #a3dd5e;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2271,7 +2271,7 @@ ul.breadcrumb li + li:last-child {
   }
 }
 .sidebar {
-  background: #eee;
+  background: #fffff0;
   box-shadow: none;
   float: left;
   position: static;
@@ -2637,10 +2637,10 @@ ul.breadcrumb li + li:last-child {
 }
 .post-body h1,
 .post-body h2 {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #fffff0;
 }
 .post-body h3 {
-  border-bottom: 1px dotted #eee;
+  border-bottom: 1px dotted #fffff0;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .content-wrap {
