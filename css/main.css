@@ -151,7 +151,7 @@ template {
   color: #fff;
 }
 body {
-  background: #fff;
+  background: #fffff0;
   color: #555;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1em;
@@ -1678,7 +1678,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #6639ff;
+  background: #98ff9d;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
