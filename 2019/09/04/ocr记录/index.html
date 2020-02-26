@@ -63,13 +63,13 @@
 <meta property="og:site_name" content="小徐的见习日记">
 <meta property="og:description" content="一 内容梗概：这个项目一共有两个需要完成的代码文件，一个是gen_printed_char，另一个是Chinese_OCR。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/.com//D:%5Cboke%5Csource%5Cimages%5CTIM%E5%9B%BE%E7%89%8720200226224215.png">
-<meta property="og:image" content="http://yoursite.com/.com//boke/source/images/TIM图片20200226222749.png">
-<meta property="og:updated_time" content="2020-02-26T18:15:22.806Z">
+<meta property="og:image" content="http://yoursite.com/.com//D:%5Cboke%5Csource%5Cimages%5CTIM%E5%9B%BE%E7%89%8720200226224215.jpg">
+<meta property="og:image" content="http://yoursite.com/.com//D:%5Cboke%5Csource%5Cimages%5CTIM%E5%9B%BE%E7%89%8720200226222749.jpg">
+<meta property="og:updated_time" content="2020-02-26T18:40:51.357Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OCR记录">
 <meta name="twitter:description" content="一 内容梗概：这个项目一共有两个需要完成的代码文件，一个是gen_printed_char，另一个是Chinese_OCR。">
-<meta name="twitter:image" content="http://yoursite.com/.com//D:%5Cboke%5Csource%5Cimages%5CTIM%E5%9B%BE%E7%89%8720200226224215.png">
+<meta name="twitter:image" content="http://yoursite.com/.com//D:%5Cboke%5Csource%5Cimages%5CTIM%E5%9B%BE%E7%89%8720200226224215.jpg">
   <link rel="canonical" href="http://yoursite.com/2019/09/04/ocr记录/">
 
 
@@ -273,7 +273,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-27 02:15:22" itemprop="dateModified" datetime="2020-02-27T02:15:22+08:00">2020-02-27</time>
+                <time title="修改时间：2020-02-27 02:40:51" itemprop="dateModified" datetime="2020-02-27T02:40:51+08:00">2020-02-27</time>
               </span>
             
           
@@ -301,9 +301,10 @@
 <a id="more"></a>
 
 <p>首先gen__printed_char中的代码的核心就是在网上收集字体文件，即存在Chinese_fonts中的内容。进行泛化（泛化应该是将每个字经过旋转偏移形成各种各样的汉字图像)。下图是一个汉字经过泛化后得到的内容。这时候得到了3755个汉字所对应的泛化图像，第一步完成。</p>
-<h2 id><a href="#" class="headerlink" title></a><img src="/.com//D:%5Cboke%5Csource%5Cimages%5CTIM%E5%9B%BE%E7%89%8720200226224215.png" alt="TIM图片20200226224215"></h2><p>Chinese_ocr是将第一步中得到的3755个汉字所对应的图像进行训练，最后得到一个分类器，随后将待识别的文字图片扔进tmp文件</p>
+<p><img src="/.com//D:%5Cboke%5Csource%5Cimages%5CTIM%E5%9B%BE%E7%89%8720200226224215.jpg" alt="TIM图片20200226224215"></p>
+<p>Chinese_ocr是将第一步中得到的3755个汉字所对应的图像进行训练，最后得到一个分类器，随后将待识别的文字图片扔进tmp文件</p>
 <h2 id="二-内容细节："><a href="#二-内容细节：" class="headerlink" title="二 内容细节："></a>二 内容细节：</h2><p>此部分从 gen_printed_char 的init_main部分说起，类似于c语言中的main函数。</p>
-<p>​    首先将这个文件的调用需要一些参数—即相关最终图像所放置的文件，图像旋转的角度等等，作者用了一个args_parse的包。这个包适合处理要输入大量的参数。此部分相关详细内容我放在了</p>
+<p>​    首先将这个文件的调用需要一些参数—即相关最终图像所放置的文件，图像旋转的角度等等，作者用了一个args_parse的包。这个包适合处理要输入大量的参数。此部分相关详细内容我放在了<a href="https://297774951.github.io/2019/09/04/argparser%E4%B8%8Eos%E6%A8%A1%E5%9D%97/" target="_blank" rel="noopener">这里</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">	description = &apos;&apos;&apos;    python gen_printed_char.py --out_dir ./dataset \</span><br><span class="line">    --font_dir ./chinese_fonts \ </span><br><span class="line">    --width 30 --height 30 --margin 4 --rotate 30 --rotate_step 1    &apos;&apos;&apos;</span><br><span class="line">    options = args_parse()    </span><br><span class="line">    #参数列表中的输出文件位置赋给out_dir  即dataset    </span><br><span class="line">    out_dir = os.path.expanduser(options[&apos;out_dir&apos;])    </span><br><span class="line">    #参数列表中的字体文件位置赋给 font_dir 即Chinese-fonts  Chinese_fonts文件里面是在网上找的各种字体文件    	  font_dir = os.path.expanduser(options[&apos;font_dir&apos;])    </span><br><span class="line">    #测试比例？ 默认等于0.2好像    </span><br><span class="line">    test_ratio = float(options[&apos;test_ratio&apos;])    </span><br><span class="line">    #图片宽为30 高为30    </span><br><span class="line">    width = int(options[&apos;width&apos;])   </span><br><span class="line">    height = int(options[&apos;height&apos;])    </span><br><span class="line">    need_crop = not options[&apos;no_crop&apos;]    </span><br><span class="line">    margin = int(options[&apos;margin&apos;])    </span><br><span class="line">    #旋转角度 0-45    </span><br><span class="line">    rotate = int(options[&apos;rotate&apos;])    </span><br><span class="line">    need_aug = options[&apos;need_aug&apos;]    </span><br><span class="line">    #旋转步数    </span><br><span class="line">    rotate_step = int(options[&apos;rotate_step&apos;])   </span><br><span class="line">    train_image_dir_name = &quot;train&quot;    </span><br><span class="line">    test_image_dir_name = &quot;test&quot;    </span><br><span class="line">    # 将dataset分为train和test两个文件夹分别存储   </span><br><span class="line">    train_images_dir = os.path.join(out_dir, train_image_dir_name)    </span><br><span class="line">    test_images_dir = os.path.join(out_dir, test_image_dir_name)    </span><br><span class="line">    #判断是否存在这个目录，如果存在，删掉这个目录从新建一个    </span><br><span class="line">    if os.path.isdir(train_images_dir):        </span><br><span class="line">    	shutil.rmtree(train_images_dir)    </span><br><span class="line">    	os.makedirs(train_images_dir)    </span><br><span class="line">    if os.path.isdir(test_images_dir):        </span><br><span class="line">    	shutil.rmtree(test_images_dir)    </span><br><span class="line">    	os.makedirs(test_images_dir)</span><br></pre></td></tr></table></figure>
 
 <p>作者定义的类：</p>
@@ -312,8 +313,8 @@
 <p>​                </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 注意，chinese_labels里面的映射关系是：（ID：汉字）</span><br><span class="line">def get_label_dict():    </span><br><span class="line">	f = open(&apos;./chinese_labels&apos;, &apos;rb&apos;)    </span><br><span class="line">	label_dict = pickle.load(f, encoding=&quot;utf-8&quot;)    </span><br><span class="line">	f.close()    </span><br><span class="line">	return label_dict</span><br></pre></td></tr></table></figure>
 
-<p>Chinese_labels文件是作者按照字典即哈希表样式 每个字对应一个数字 例如 “0 对应着 一，1对应着 丁”，<img src="/.com//boke\source\images\TIM图片20200226222749.png" alt="TIM图片20200226222749" style="zoom: 33%;"></p>
-<p>然后为了便于存储 用pickel模块进行封存，直接打开是乱码，但经过pickel导入就显示内容。</p>
+<p>Chinese_labels文件是作者按照字典即哈希表样式 每个字对应一个数字 例如 “0 对应着 一，1对应着 丁”，</p>
+<p>然后为了便于存储 用pickel模块进行封存，直接打开是乱码，但经过pickel导入就显示内容。<img src="/.com//D:%5Cboke%5Csource%5Cimages%5CTIM%E5%9B%BE%E7%89%8720200226222749.jpg" alt="TIM图片20200226222749"></p>
 <p>但作者在后面会进行翻转，即汉字对应着·某个数字</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">label_dict = get_label_dict()</span><br><span class="line">char_list = []  </span><br><span class="line"># 汉字列表</span><br><span class="line">value_list = []  </span><br><span class="line"># label列表</span><br><span class="line">for (value, chars) in label_dict.items():    </span><br><span class="line">print(value, chars)    </span><br><span class="line">char_list.append(chars)    </span><br><span class="line">value_list.append(value)</span><br></pre></td></tr></table></figure>
 
@@ -325,7 +326,7 @@
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">检查字体文件是否可用</span><br><span class="line">class FontCheck(object):    </span><br><span class="line">	def __init__(self, lang_chars, width=32, height=32):        </span><br><span class="line">		self.lang_chars = lang_chars       </span><br><span class="line">        self.width = width        </span><br><span class="line">        self.height = height    </span><br><span class="line">    def do(self, font_path):        </span><br><span class="line">        width = self.width        </span><br><span class="line">    	height = self.height        </span><br><span class="line">    	try：</span><br><span class="line">    	    for i, char in enumerate(self.lang_chars):</span><br><span class="line">                img = Image.new(&quot;RGB&quot;, (width, height), &quot;black&quot;)  # 黑色背景</span><br><span class="line">                draw = ImageDraw.Draw(img)</span><br><span class="line">                font = ImageFont.truetype(font_path, int(width * 0.9), )</span><br><span class="line">                # 白色字体</span><br><span class="line">                draw.text((0, 0), char, (255, 255, 255), font=font</span><br><span class="line">                #getdata是看着图像的3个rgb值</span><br><span class="line">                data = list(img.getdata())</span><br><span class="line">                sum_val = 0</span><br><span class="line">                for i_data in data:</span><br><span class="line">                    sum_val += sum(i_data)</span><br><span class="line">                if sum_val &lt; 2:</span><br><span class="line">                    return False</span><br><span class="line">        except:</span><br><span class="line">            print(&quot;fail to load:%s&quot; % font_path)</span><br><span class="line">            traceback.print_exc(file=sys.stdout)</span><br><span class="line">            return False</span><br><span class="line">        return True</span><br></pre></td></tr></table></figure>
 
-<p>关于pillow模块的使用可以参照另一篇说明</p>
+<p>关于pillow模块的使用可以参照另一篇<a href="https://297774951.github.io/2019/09/10/Pillow/" target="_blank" rel="noopener">说明</a></p>
 
     </div>
 
@@ -351,8 +352,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/04/c语言vector/" rel="next" title="vector使用说明">
-                  <i class="fa fa-chevron-left"></i> vector使用说明
+                <a href="/2019/09/04/古剑奇谭/" rel="next" title="古剑奇谭截图">
+                  <i class="fa fa-chevron-left"></i> 古剑奇谭截图
                 </a>
               
             </div>
@@ -361,8 +362,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/09/04/argparser与os模块/" rel="prev" title="argparse模块与os模块">
-                  argparse模块与os模块 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/09/07/lc两数相加/" rel="prev" title="两数相加">
+                  两数相加 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -412,7 +413,7 @@
     
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-内容梗概："><span class="nav-number">1.</span> <span class="nav-text">一 内容梗概：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-内容细节："><span class="nav-number">3.</span> <span class="nav-text">二 内容细节：</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-内容梗概："><span class="nav-number">1.</span> <span class="nav-text">一 内容梗概：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-内容细节："><span class="nav-number">2.</span> <span class="nav-text">二 内容细节：</span></a></li></ol></div>
         
     
       </div>
