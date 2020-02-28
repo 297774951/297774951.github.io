@@ -55,22 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="python argparse模块argparse是预先在下图位置输入参数，比如图片旋转的角度，图片的长宽还有图片最终存放的位置。然后运行此程序后，这些参数就自动的被调用了。   以下为网上找的相关资料：">
-<meta name="keywords" content="OCR学习">
+  <meta name="description" content="操作图像来看看最常见的图像缩放操作，只需三四行代码：">
+<meta name="keywords" content="OCR学习,模块">
 <meta property="og:type" content="article">
-<meta property="og:title" content="argparse">
-<meta property="og:url" content="http://yoursite.com/2019/09/04/argparser与os模块/index.html">
+<meta property="og:title" content="pillow">
+<meta property="og:url" content="http://yoursite.com/2020/02/10/Pillow/index.html">
 <meta property="og:site_name" content="小徐的见习日记">
-<meta property="og:description" content="python argparse模块argparse是预先在下图位置输入参数，比如图片旋转的角度，图片的长宽还有图片最终存放的位置。然后运行此程序后，这些参数就自动的被调用了。   以下为网上找的相关资料：">
+<meta property="og:description" content="操作图像来看看最常见的图像缩放操作，只需三四行代码：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/images/edit.jpg">
-<meta property="og:image" content="http://yoursite.com/.com//D:%5Cboke%5Csource%5Cimages%5CTIM%E5%9B%BE%E7%89%8720200226010748.png">
-<meta property="og:updated_time" content="2020-02-27T10:50:42.664Z">
+<meta property="og:updated_time" content="2020-02-27T15:08:31.319Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="argparse">
-<meta name="twitter:description" content="python argparse模块argparse是预先在下图位置输入参数，比如图片旋转的角度，图片的长宽还有图片最终存放的位置。然后运行此程序后，这些参数就自动的被调用了。   以下为网上找的相关资料：">
-<meta name="twitter:image" content="http://yoursite.com/images/edit.jpg">
-  <link rel="canonical" href="http://yoursite.com/2019/09/04/argparser与os模块/">
+<meta name="twitter:title" content="pillow">
+<meta name="twitter:description" content="操作图像来看看最常见的图像缩放操作，只需三四行代码：">
+  <link rel="canonical" href="http://yoursite.com/2020/02/10/Pillow/">
 
 
 <script id="page-configurations">
@@ -84,7 +81,7 @@
   };
 </script>
 
-  <title>argparse | 小徐的见习日记</title>
+  <title>pillow | 小徐的见习日记</title>
   
 
 
@@ -234,7 +231,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/04/argparser与os模块/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/10/Pillow/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="老徐">
@@ -246,7 +243,7 @@
       <meta itemprop="name" content="小徐的见习日记">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">argparse
+        <h1 class="post-title" itemprop="name headline">pillow
 
           
         </h1>
@@ -262,7 +259,7 @@
                 
               
 
-              <time title="创建时间：2019-09-04 14:40:16" itemprop="dateCreated datePublished" datetime="2019-09-04T14:40:16+08:00">2019-09-04</time>
+              <time title="创建时间：2020-02-10 16:14:16" itemprop="dateCreated datePublished" datetime="2020-02-10T16:14:16+08:00">2020-02-10</time>
             </span>
           
             
@@ -273,7 +270,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-27 18:50:42" itemprop="dateModified" datetime="2020-02-27T18:50:42+08:00">2020-02-27</time>
+                <time title="修改时间：2020-02-27 23:08:31" itemprop="dateModified" datetime="2020-02-27T23:08:31+08:00">2020-02-27</time>
               </span>
             
           
@@ -297,73 +294,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="python-argparse模块"><a href="#python-argparse模块" class="headerlink" title="python argparse模块"></a>python argparse模块</h1><p>argparse是预先在下图位置输入参数，比如图片旋转的角度，图片的长宽还有图片最终存放的位置。然后运行此程序后，这些参数就自动的被调用了。</p>
-<p><img src="/../images/edit.jpg" alt="20"></p>
-<hr>
-<p>以下为网上找的相关资料：</p>
+        <h3 id="操作图像"><a href="#操作图像" class="headerlink" title="操作图像"></a>操作图像</h3><p>来看看最常见的图像缩放操作，只需三四行代码：</p>
 <a id="more"></a>
 
-<p>vars()<br>如果对象具有<strong>dict</strong>属性，则vars（）函数返回给定对象的<strong>dict</strong>属性.(函数返回对象object的属性和属性值的字典对象1 )</p>
-<p>日常运用:<br>将args传递的参数从namespace 转换为dict,这样就不用将args包含的参数一一列举出来再传入相应函数中,化简代码,增加可读性.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class WGAN():</span><br><span class="line">	def __init__(self,d1,d2):</span><br><span class="line">		self.args   = d1</span><br><span class="line">		self.kwargs = d2</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">def printval(self):</span><br><span class="line">	print(self.args)</span><br><span class="line">	print(self.kwargs)</span><br><span class="line"></span><br><span class="line">def parse_train():</span><br><span class="line">	parser = argparse.ArgumentParser(description=&quot;Tain WGAN model&quot;)</span><br><span class="line">	parser.add_argument(&apos;--try1&apos;,dest=&apos;d1&apos;,default=1, type = int, help = &quot;this is try1&quot;)</span><br><span class="line">	parser.add_argument(&apos;--try2&apos;,dest=&apos;d2&apos;,default=2, type = int, help = &quot;this is try2&quot;)</span><br><span class="line">	args = parser.parse_args()</span><br><span class="line">	return args</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">	args = parse_train()</span><br><span class="line">	wgan = WGAN(**vars(args))</span><br><span class="line">	wgan.printval()</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">	main()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">from PIL import Image</span><br><span class="line"></span><br><span class="line"># 打开一个jpg图像文件，注意是当前路径:</span><br><span class="line">im = Image.open(&apos;test.jpg&apos;)</span><br><span class="line"># 获得图像尺寸:</span><br><span class="line">w, h = im.size</span><br><span class="line">print(&apos;Original image size: %sx%s&apos; % (w, h))</span><br><span class="line"># 缩放到50%:</span><br><span class="line">im.thumbnail((w//2, h//2))</span><br><span class="line">print(&apos;Resize image to: %sx%s&apos; % (w//2, h//2))</span><br><span class="line"># 把缩放后的图像用jpeg格式保存:</span><br><span class="line">im.save(&apos;thumbnail.jpg&apos;, &apos;jpeg&apos;)</span><br></pre></td></tr></table></figure>
 
-<p>例如上述代码，vars就是将argparse中的所有属性都传给wgan。</p>
-<p>若不用 <code>wgan = WGAN(**vars(args))</code>,则需要输入<code>wgan = WGAN(args.d1,args.d2)</code>,在参数较多的情况下十分冗余,不便阅读</p>
-<hr>
-<h1 id="Python-os-path-模块"><a href="#Python-os-path-模块" class="headerlink" title="Python os.path() 模块"></a>Python os.path() 模块</h1><p>os.path 模块主要用于获取文件的属性。</p>
-<p>以下是 os.path 模块的几种常用方法：</p>
-<table>
-<thead>
-<tr>
-<th align="left">方法</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">os.path.abspath(path)</td>
-<td align="left">返回绝对路径</td>
-</tr>
-<tr>
-<td align="left">os.path.basename(path)</td>
-<td align="left">返回文件名</td>
-</tr>
-<tr>
-<td align="left">os.path.isdir(path)</td>
-<td align="left">判断路径是否为目录</td>
-</tr>
-<tr>
-<td align="left">os.path.dirname(path)</td>
-<td align="left">返回文件路径</td>
-</tr>
-<tr>
-<td align="left">os.path.exists(path)</td>
-<td align="left">如果路径 path 存在，返回 True；如果路径 path 不存在，返回 False。</td>
-</tr>
-<tr>
-<td align="left">os.path.lexists</td>
-<td align="left">路径存在则返回True,路径损坏也返回True</td>
-</tr>
-<tr>
-<td align="left">os.path.expanduser(path)</td>
-<td align="left">把path中包含的”<del>“和”</del>user”转换成用户目录</td>
-</tr>
-<tr>
-<td align="left">os.path.isabs(path)</td>
-<td align="left">判断是否为绝对路径</td>
-</tr>
-<tr>
-<td align="left">os.path.join(path1[, path2[, …]])</td>
-<td align="left">把目录和文件名合成一个路径</td>
-</tr>
-</tbody></table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">file=&apos;/t/a.txt&apos;</span><br><span class="line">print(os.path.basename(file) ) # 返回文件名</span><br><span class="line">print(os.path.dirname(file) ) # 返回目录路径</span><br><span class="line">print(os.path.abspath(file) )</span><br></pre></td></tr></table></figure>
+<p>其他功能如切片、旋转、滤镜、输出文字、调色板等一应俱全。</p>
+<p>比如，模糊效果也只需几行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from PIL import Image, ImageFilter</span><br><span class="line"></span><br><span class="line"># 打开一个jpg图像文件，注意是当前路径:</span><br><span class="line">im = Image.open(&apos;test.jpg&apos;)</span><br><span class="line"># 应用模糊滤镜:</span><br><span class="line">im2 = im.filter(ImageFilter.BLUR)</span><br><span class="line">im2.save(&apos;blur.jpg&apos;, &apos;jpeg&apos;)</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//D:%5Cboke%5Csource%5Cimages%5CTIM%E5%9B%BE%E7%89%8720200226010748.png" alt="TIM图片20200226010748"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line"></span><br><span class="line">Path1 = &apos;home&apos;</span><br><span class="line">Path2 = &apos;develop&apos;</span><br><span class="line">Path3 = &apos;code&apos;</span><br><span class="line"></span><br><span class="line">Path10 = Path1 + Path2 + Path3</span><br><span class="line">Path20 = os.path.join(Path1,Path2,Path3)</span><br><span class="line">print (&apos;Path10 = &apos;,Path10)</span><br><span class="line">print (&apos;Path20 = &apos;,Path20)</span><br></pre></td></tr></table></figure>
+<p>PIL的<code>ImageDraw</code>提供了一系列绘图方法，让我们可以直接绘图。比如要生成字母验证码图片：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">from PIL import Image, ImageDraw, ImageFont, ImageFilter</span><br><span class="line"></span><br><span class="line">import random</span><br><span class="line"></span><br><span class="line"># 随机字母:</span><br><span class="line">def rndChar():</span><br><span class="line">    return chr(random.randint(65, 90))</span><br><span class="line"></span><br><span class="line"># 随机颜色1:</span><br><span class="line">def rndColor():</span><br><span class="line">    return (random.randint(64, 255), random.randint(64, 255), random.randint(64, 255))</span><br><span class="line"></span><br><span class="line"># 随机颜色2:</span><br><span class="line">def rndColor2():</span><br><span class="line">    return (random.randint(32, 127), random.randint(32, 127), random.randint(32, 127))</span><br><span class="line"></span><br><span class="line"># 240 x 60:</span><br><span class="line">width = 60 * 4</span><br><span class="line">height = 60</span><br><span class="line">image = Image.new(&apos;RGB&apos;, (width, height), (255, 255, 255))</span><br><span class="line"># 创建Font对象:</span><br><span class="line">#36指的是文字的大小</span><br><span class="line">font = ImageFont.truetype(&apos;Arial.ttf&apos;, 36)</span><br><span class="line"># 创建Draw对象:</span><br><span class="line">draw = ImageDraw.Draw(image)</span><br><span class="line"># 填充每个像素:</span><br><span class="line">for x in range(width):</span><br><span class="line">    for y in range(height):</span><br><span class="line">        draw.point((x, y), fill=rndColor())</span><br><span class="line"># 输出文字:</span><br><span class="line">for t in range(4):</span><br><span class="line">	#数字指的是位置</span><br><span class="line">    draw.text((60 * t + 10, 10), rndChar(), font=font, fill=rndColor2())</span><br><span class="line"># 模糊:</span><br><span class="line">image = image.filter(ImageFilter.BLUR)</span><br><span class="line">image.save(&apos;code.jpg&apos;, &apos;jpeg&apos;)</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">**输出**</span><br><span class="line">Path10 = homedevelopcode</span><br><span class="line">Path20 = home\develop\code</span><br></pre></td></tr></table></figure>
+<p>自己写的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">char=&apos;我&apos;</span><br><span class="line">img = Image.new(&quot;RGB&quot;, (800, 800), &quot;black&quot;)  # 创建一个黑色图片黑色背景</span><br><span class="line">draw = ImageDraw.Draw(img)</span><br><span class="line">font_path=&quot;./t/fangzheng_shusong.ttf&quot;</span><br><span class="line">#500指字的大小</span><br><span class="line">font = ImageFont.truetype(font_path, 500 )</span><br><span class="line"># 白色字体</span><br><span class="line">draw.text((200, 200), char, (255, 255, 255),font=font)</span><br><span class="line">for x in range(32):</span><br><span class="line">    for y in range(32):</span><br><span class="line">        draw.point((x, y), fill=49)</span><br><span class="line">img.show</span><br></pre></td></tr></table></figure>
 
-<h2 id="shutil"><a href="#shutil" class="headerlink" title="shutil"></a>shutil</h2><p>shutil.rmtree() 表示递归删除文件夹下的所有子文件夹和子文件。</p>
+<p>关于getdata（）</p>
+<p>以包含像素值的sequence对象形式返回图像的内容。这个sequence对象是扁平的，以便第一行的值直接跟在第零行的值后面，等等。这个方法返回的sequence对象是PIL内部数据类型，它只支持某些sequence操作，包括迭代和基础sequence访问。使用list(im.getdata())，将它转换为普通的sequence。Sequence对象的每一个元素对应一个像素点的R、G和B三个值。</p>
 
     </div>
 
@@ -381,6 +328,8 @@
             
               <a href="/tags/OCR学习/" rel="tag"># OCR学习</a>
             
+              <a href="/tags/模块/" rel="tag"># 模块</a>
+            
           </div>
         
 
@@ -389,8 +338,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/04/算法头文件/" rel="next" title="c语言algorithm头文件下常用函数">
-                  <i class="fa fa-chevron-left"></i> c语言algorithm头文件下常用函数
+                <a href="/2020/01/22/英语时态/" rel="next" title="英语时态">
+                  <i class="fa fa-chevron-left"></i> 英语时态
                 </a>
               
             </div>
@@ -399,8 +348,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/09/04/我的第一篇文档/" rel="prev" title="我的第一篇文档">
-                  我的第一篇文档 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/02/20/ocr记录/" rel="prev" title="OCR学习">
+                  OCR学习 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -450,7 +399,7 @@
     
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python-argparse模块"><span class="nav-number">1.</span> <span class="nav-text">python argparse模块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-os-path-模块"><span class="nav-number">2.</span> <span class="nav-text">Python os.path() 模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#shutil"><span class="nav-number">2.1.</span> <span class="nav-text">shutil</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作图像"><span class="nav-number">1.</span> <span class="nav-text">操作图像</span></a></li></ol></div>
         
     
       </div>
@@ -472,7 +421,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -485,7 +434,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

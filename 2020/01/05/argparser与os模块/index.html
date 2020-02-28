@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":true},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="python argparse模块argparse是预先在下图位置输入参数，比如图片旋转的角度，图片的长宽还有图片最终存放的位置。然后运行此程序后，这些参数就自动的被调用了。   以下为网上找的相关资料：">
+<meta name="keywords" content="OCR学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="argparse">
+<meta property="og:url" content="http://yoursite.com/2020/01/05/argparser与os模块/index.html">
+<meta property="og:site_name" content="小徐的见习日记">
+<meta property="og:description" content="python argparse模块argparse是预先在下图位置输入参数，比如图片旋转的角度，图片的长宽还有图片最终存放的位置。然后运行此程序后，这些参数就自动的被调用了。   以下为网上找的相关资料：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/edit.jpg">
+<meta property="og:image" content="http://yoursite.com/.com//D:%5Cboke%5Csource%5Cimages%5CTIM%E5%9B%BE%E7%89%8720200226010748.png">
+<meta property="og:updated_time" content="2020-02-27T15:07:43.793Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="argparse">
+<meta name="twitter:description" content="python argparse模块argparse是预先在下图位置输入参数，比如图片旋转的角度，图片的长宽还有图片最终存放的位置。然后运行此程序后，这些参数就自动的被调用了。   以下为网上找的相关资料：">
+<meta name="twitter:image" content="http://yoursite.com/images/edit.jpg">
+  <link rel="canonical" href="http://yoursite.com/2020/01/05/argparser与os模块/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>argparse | 小徐的见习日记</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小徐的见习日记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">一些关于生活与学习的琐事</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/05/argparser与os模块/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="老徐">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小徐的见习日记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">argparse
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-01-05 14:40:16" itemprop="dateCreated datePublished" datetime="2020-01-05T14:40:16+08:00">2020-01-05</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-27 23:07:43" itemprop="dateModified" datetime="2020-02-27T23:07:43+08:00">2020-02-27</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="python-argparse模块"><a href="#python-argparse模块" class="headerlink" title="python argparse模块"></a>python argparse模块</h1><p>argparse是预先在下图位置输入参数，比如图片旋转的角度，图片的长宽还有图片最终存放的位置。然后运行此程序后，这些参数就自动的被调用了。</p>
+<p><img src="/../images/edit.jpg" alt="20"></p>
+<hr>
+<p>以下为网上找的相关资料：</p>
+<a id="more"></a>
+
+<p>vars()<br>如果对象具有<strong>dict</strong>属性，则vars（）函数返回给定对象的<strong>dict</strong>属性.(函数返回对象object的属性和属性值的字典对象1 )</p>
+<p>日常运用:<br>将args传递的参数从namespace 转换为dict,这样就不用将args包含的参数一一列举出来再传入相应函数中,化简代码,增加可读性.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class WGAN():</span><br><span class="line">	def __init__(self,d1,d2):</span><br><span class="line">		self.args   = d1</span><br><span class="line">		self.kwargs = d2</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">def printval(self):</span><br><span class="line">	print(self.args)</span><br><span class="line">	print(self.kwargs)</span><br><span class="line"></span><br><span class="line">def parse_train():</span><br><span class="line">	parser = argparse.ArgumentParser(description=&quot;Tain WGAN model&quot;)</span><br><span class="line">	parser.add_argument(&apos;--try1&apos;,dest=&apos;d1&apos;,default=1, type = int, help = &quot;this is try1&quot;)</span><br><span class="line">	parser.add_argument(&apos;--try2&apos;,dest=&apos;d2&apos;,default=2, type = int, help = &quot;this is try2&quot;)</span><br><span class="line">	args = parser.parse_args()</span><br><span class="line">	return args</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">	args = parse_train()</span><br><span class="line">	wgan = WGAN(**vars(args))</span><br><span class="line">	wgan.printval()</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">	main()</span><br></pre></td></tr></table></figure>
+
+<p>例如上述代码，vars就是将argparse中的所有属性都传给wgan。</p>
+<p>若不用 <code>wgan = WGAN(**vars(args))</code>,则需要输入<code>wgan = WGAN(args.d1,args.d2)</code>,在参数较多的情况下十分冗余,不便阅读</p>
+<hr>
+<h1 id="Python-os-path-模块"><a href="#Python-os-path-模块" class="headerlink" title="Python os.path() 模块"></a>Python os.path() 模块</h1><p>os.path 模块主要用于获取文件的属性。</p>
+<p>以下是 os.path 模块的几种常用方法：</p>
+<table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">os.path.abspath(path)</td>
+<td align="left">返回绝对路径</td>
+</tr>
+<tr>
+<td align="left">os.path.basename(path)</td>
+<td align="left">返回文件名</td>
+</tr>
+<tr>
+<td align="left">os.path.isdir(path)</td>
+<td align="left">判断路径是否为目录</td>
+</tr>
+<tr>
+<td align="left">os.path.dirname(path)</td>
+<td align="left">返回文件路径</td>
+</tr>
+<tr>
+<td align="left">os.path.exists(path)</td>
+<td align="left">如果路径 path 存在，返回 True；如果路径 path 不存在，返回 False。</td>
+</tr>
+<tr>
+<td align="left">os.path.lexists</td>
+<td align="left">路径存在则返回True,路径损坏也返回True</td>
+</tr>
+<tr>
+<td align="left">os.path.expanduser(path)</td>
+<td align="left">把path中包含的”<del>“和”</del>user”转换成用户目录</td>
+</tr>
+<tr>
+<td align="left">os.path.isabs(path)</td>
+<td align="left">判断是否为绝对路径</td>
+</tr>
+<tr>
+<td align="left">os.path.join(path1[, path2[, …]])</td>
+<td align="left">把目录和文件名合成一个路径</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">file=&apos;/t/a.txt&apos;</span><br><span class="line">print(os.path.basename(file) ) # 返回文件名</span><br><span class="line">print(os.path.dirname(file) ) # 返回目录路径</span><br><span class="line">print(os.path.abspath(file) )</span><br></pre></td></tr></table></figure>
+
+<p><img src="/.com//D:%5Cboke%5Csource%5Cimages%5CTIM%E5%9B%BE%E7%89%8720200226010748.png" alt="TIM图片20200226010748"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line"></span><br><span class="line">Path1 = &apos;home&apos;</span><br><span class="line">Path2 = &apos;develop&apos;</span><br><span class="line">Path3 = &apos;code&apos;</span><br><span class="line"></span><br><span class="line">Path10 = Path1 + Path2 + Path3</span><br><span class="line">Path20 = os.path.join(Path1,Path2,Path3)</span><br><span class="line">print (&apos;Path10 = &apos;,Path10)</span><br><span class="line">print (&apos;Path20 = &apos;,Path20)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">**输出**</span><br><span class="line">Path10 = homedevelopcode</span><br><span class="line">Path20 = home\develop\code</span><br></pre></td></tr></table></figure>
+
+<h2 id="shutil"><a href="#shutil" class="headerlink" title="shutil"></a>shutil</h2><p>shutil.rmtree() 表示递归删除文件夹下的所有子文件夹和子文件。</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/OCR学习/" rel="tag"># OCR学习</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/01/04/c语言vector/" rel="next" title="vector使用说明">
+                  <i class="fa fa-chevron-left"></i> vector使用说明
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2020/01/22/英语时态/" rel="prev" title="英语时态">
+                  英语时态 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+    
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+    
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python-argparse模块"><span class="nav-number">1.</span> <span class="nav-text">python argparse模块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-os-path-模块"><span class="nav-number">2.</span> <span class="nav-text">Python os.path() 模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#shutil"><span class="nav-number">2.1.</span> <span class="nav-text">shutil</span></a></li></ol></li></ol></div>
+        
+    
+      </div>
+      <!--/noindex-->
+           <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=857619&auto=1&height=66"></iframe>
+        </iframe>
+    </div>
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/a.jpg"
+      alt="老徐">
+  <p class="site-author-name" itemprop="name">老徐</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/297774951" title="GitHub &rarr; https://github.com/297774951" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/7280472739" title="微博 &rarr; https://weibo.com/7280472739" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>微博</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://space.bilibili.com/194530631" title="B站 &rarr; https://space.bilibili.com/194530631" rel="noopener" target="_blank"><i class="fa fa-fw fa-bat"></i>B站</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://user.qzone.qq.com/297774951" title="QQ &rarr; https://user.qzone.qq.com/297774951" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+
+​    
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">老徐</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.4.0</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+    
+  
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script defer src="/lib/three/three.min.js"></script>
+  <script defer src="/lib/three/three-waves.min.js"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/muse.js?v=7.4.0"></script>
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
