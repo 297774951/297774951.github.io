@@ -55,20 +55,20 @@
   };
 </script>
 
-  <meta name="description" content="用Python写代码的时候，在想看的地方写个print xx 就能在控制台上显示打印信息，这样子就能知道它是什么了，但是当我需要看大量的地方或者在一个文件中查看的时候，这时候print就不大方便了，所以Python引入了logging模块来记录我想要的信息。 ​        print也可以输入日志，logging相对print来说更好控制输出在哪个地方，怎么输出及控制消息级别来过滤掉那些不需要">
+  <meta name="description" content="用Python写代码的时候，在想看的地方写个print xx 就能在控制台上显示打印信息，这样子就能知道它是什么了，但是当我需要看大量的地方或者在一个文件中查看的时候，这时候print就不大方便了，所以Python引入了logging模块来记录我想要的信息。">
 <meta name="keywords" content="OCR学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="logging 模块">
 <meta property="og:url" content="http://yoursite.com/2020/03/08/logging/index.html">
 <meta property="og:site_name" content="小徐的见习日记">
-<meta property="og:description" content="用Python写代码的时候，在想看的地方写个print xx 就能在控制台上显示打印信息，这样子就能知道它是什么了，但是当我需要看大量的地方或者在一个文件中查看的时候，这时候print就不大方便了，所以Python引入了logging模块来记录我想要的信息。 ​        print也可以输入日志，logging相对print来说更好控制输出在哪个地方，怎么输出及控制消息级别来过滤掉那些不需要">
+<meta property="og:description" content="用Python写代码的时候，在想看的地方写个print xx 就能在控制台上显示打印信息，这样子就能知道它是什么了，但是当我需要看大量的地方或者在一个文件中查看的时候，这时候print就不大方便了，所以Python引入了logging模块来记录我想要的信息。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/images/l1.jpg">
-<meta property="og:updated_time" content="2020-03-08T17:03:18.826Z">
+<meta property="og:image" content="http://yoursite.com/images/l1.png">
+<meta property="og:updated_time" content="2020-03-31T09:12:22.379Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="logging 模块">
-<meta name="twitter:description" content="用Python写代码的时候，在想看的地方写个print xx 就能在控制台上显示打印信息，这样子就能知道它是什么了，但是当我需要看大量的地方或者在一个文件中查看的时候，这时候print就不大方便了，所以Python引入了logging模块来记录我想要的信息。 ​        print也可以输入日志，logging相对print来说更好控制输出在哪个地方，怎么输出及控制消息级别来过滤掉那些不需要">
-<meta name="twitter:image" content="http://yoursite.com/images/l1.jpg">
+<meta name="twitter:description" content="用Python写代码的时候，在想看的地方写个print xx 就能在控制台上显示打印信息，这样子就能知道它是什么了，但是当我需要看大量的地方或者在一个文件中查看的时候，这时候print就不大方便了，所以Python引入了logging模块来记录我想要的信息。">
+<meta name="twitter:image" content="http://yoursite.com/images/l1.png">
   <link rel="canonical" href="http://yoursite.com/2020/03/08/logging/">
 
 
@@ -272,7 +272,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-09 01:03:18" itemprop="dateModified" datetime="2020-03-09T01:03:18+08:00">2020-03-09</time>
+                <time title="修改时间：2020-03-31 17:12:22" itemprop="dateModified" datetime="2020-03-31T17:12:22+08:00">2020-03-31</time>
               </span>
             
           
@@ -297,11 +297,13 @@
 
       
         <p>用Python写代码的时候，在想看的地方写个print xx 就能在控制台上显示打印信息，这样子就能知道它是什么了，但是当我需要看大量的地方或者在一个文件中查看的时候，这时候print就不大方便了，所以Python引入了logging模块来记录我想要的信息。</p>
+<a id="more"></a>
+
 <p>​        print也可以输入日志，logging相对print来说更好控制输出在哪个地方，怎么输出及控制消息级别来过滤掉那些不需要的信息。</p>
 <h3 id="1、日志级别"><a href="#1、日志级别" class="headerlink" title="1、日志级别"></a><strong><em>1、日志级别</em></strong></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging  <span class="comment"># 引入logging模块</span></span><br><span class="line"><span class="comment"># 将信息打印到控制台上</span></span><br><span class="line">logging.debug(<span class="string">u"五一"</span>)</span><br><span class="line">logging.info(<span class="string">u"赵二"</span>)</span><br><span class="line">logging.warning(<span class="string">u"徐三"</span>)</span><br><span class="line">logging.error(<span class="string">u"李四"</span>)</span><br><span class="line">logging.critical(<span class="string">u"王五"</span>)</span><br></pre></td></tr></table></figure>
 
 <p>回显：</p>
-<p><img src="/../images/l1.jpg" alt="20"></p>
+<p><img src="/../images/l1.png" alt="20"></p>
 <p>上面可以看到只有后面三个能打印出来</p>
 <p>默认生成的root logger的level是logging.WARNING,低于该级别的就不输出了</p>
 <p><strong>级别排序:CRITICAL &gt; ERROR &gt; WARNING &gt; INFO &gt; DEBUG</strong></p>
@@ -404,10 +406,7 @@
     
       </div>
       <!--/noindex-->
-           <div id="music163player">
-    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=857619&auto=1&height=66"></iframe>
-        </iframe>
-    </div>
+           
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
