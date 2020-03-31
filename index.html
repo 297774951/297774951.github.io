@@ -225,6 +225,260 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/22/链表数据结构/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="老徐">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小徐的见习日记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/03/22/链表数据结构/" class="post-title-link" itemprop="url">链表数据结构</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-22 16:40:16" itemprop="dateCreated datePublished" datetime="2020-03-22T16:40:16+08:00">2020-03-22</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-31 16:48:44" itemprop="dateModified" datetime="2020-03-31T16:48:44+08:00">2020-03-31</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>记录下python版链表数据结构以后可以直接拿来用~</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/03/22/链表数据结构/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/08/logging/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="老徐">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小徐的见习日记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/03/08/logging/" class="post-title-link" itemprop="url">logging 模块</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-08 14:40:16" itemprop="dateCreated datePublished" datetime="2020-03-08T14:40:16+08:00">2020-03-08</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-09 01:03:18" itemprop="dateModified" datetime="2020-03-09T01:03:18+08:00">2020-03-09</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>用Python写代码的时候，在想看的地方写个print xx 就能在控制台上显示打印信息，这样子就能知道它是什么了，但是当我需要看大量的地方或者在一个文件中查看的时候，这时候print就不大方便了，所以Python引入了logging模块来记录我想要的信息。</p>
+<p>​        print也可以输入日志，logging相对print来说更好控制输出在哪个地方，怎么输出及控制消息级别来过滤掉那些不需要的信息。</p>
+<h3 id="1、日志级别"><a href="#1、日志级别" class="headerlink" title="1、日志级别"></a><strong><em>1、日志级别</em></strong></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging  <span class="comment"># 引入logging模块</span></span><br><span class="line"><span class="comment"># 将信息打印到控制台上</span></span><br><span class="line">logging.debug(<span class="string">u"五一"</span>)</span><br><span class="line">logging.info(<span class="string">u"赵二"</span>)</span><br><span class="line">logging.warning(<span class="string">u"徐三"</span>)</span><br><span class="line">logging.error(<span class="string">u"李四"</span>)</span><br><span class="line">logging.critical(<span class="string">u"王五"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>回显：</p>
+<p><img src="/../images/l1.jpg" alt="20"></p>
+<p>上面可以看到只有后面三个能打印出来</p>
+<p>默认生成的root logger的level是logging.WARNING,低于该级别的就不输出了</p>
+<p><strong>级别排序:CRITICAL &gt; ERROR &gt; WARNING &gt; INFO &gt; DEBUG</strong></p>
+<p>debug : 打印全部的日志,详细的信息,通常只出现在诊断问题上</p>
+<p>info : 打印info,warning,error,critical级别的日志,确认一切按预期运行</p>
+<p>warning : 打印warning,error,critical级别的日志,一个迹象表明,一些意想不到的事情发生了,或表明一些问题在不久的将来(例如。磁盘空间低”),这个软件还能按预期工作</p>
+<p>error : 打印error,critical级别的日志,更严重的问题,软件没能执行一些功能</p>
+<p>critical : 打印critical级别,一个严重的错误,这表明程序本身可能无法继续运行</p>
+<p>这时候，如果需要显示低于WARNING级别的内容，可以引入NOTSET级别来显示：</p>
+<h3 id="2、部分名词解释"><a href="#2、部分名词解释" class="headerlink" title="2、部分名词解释"></a><strong><em>2、部分名词解释</em></strong></h3><p>Logging.Formatter：这个类配置了日志的格式，在里面自定义设置日期和时间，输出日志的时候将会按照设置的格式显示内容。<br>Logging.Logger：Logger是Logging模块的主体，进行以下三项工作：<br>\1. 为程序提供记录日志的接口<br>\2. 判断日志所处级别，并判断是否要过滤<br>\3. 根据其日志级别将该条日志分发给不同handler<br>常用函数有：<br>Logger.setLevel() 设置日志级别<br>Logger.addHandler() 和 Logger.removeHandler() 添加和删除一个Handler<br>Logger.addFilter() 添加一个Filter,过滤作用<br>Logging.Handler：Handler基于日志级别对日志进行分发，如设置为WARNING级别的Handler只会处理WARNING及以上级别的日志。<br>常用函数有：<br>setLevel() 设置级别<br>setFormatter() 设置Formatter</p>
+<h3 id="3、日志输出-控制台和文件"><a href="#3、日志输出-控制台和文件" class="headerlink" title="3、日志输出-控制台和文件"></a><strong><em>3、日志输出-控制台和文件</em></strong></h3><p>只要在输入到日志中的第二步和第三步插入一个handler输出到控制台：<br>创建一个handler，用于输出到控制台<br>ch = logging.StreamHandler()<br>ch.setLevel(logging.WARNING)  # 输出到console的log等级的开关<br>第四步和第五步分别加入以下代码即可<br>ch.setFormatter(formatter)<br>logger.addHandler(ch)</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/06/Chinese—ocr/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="老徐">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小徐的见习日记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/03/06/Chinese—ocr/" class="post-title-link" itemprop="url">未命名</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-06 00:31:37" itemprop="dateCreated datePublished" datetime="2020-03-06T00:31:37+08:00">2020-03-06</time>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/20/ocr记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -265,7 +519,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-29 01:44:05" itemprop="dateModified" datetime="2020-02-29T01:44:05+08:00">2020-02-29</time>
+                <time title="修改时间：2020-03-31 16:59:09" itemprop="dateModified" datetime="2020-03-31T16:59:09+08:00">2020-03-31</time>
               </span>
             
           
@@ -767,7 +1021,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/02/Untitled 4/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/02/字典树(c++)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="老徐">
@@ -781,7 +1035,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2019/11/02/Untitled 4/" class="post-title-link" itemprop="url">python 字典使用</a>
+            <a href="/2019/11/02/字典树(c++)/" class="post-title-link" itemprop="url">Trie tree</a>
           
         </h1>
 
@@ -807,7 +1061,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-27 02:14:10" itemprop="dateModified" datetime="2020-02-27T02:14:10+08:00">2020-02-27</time>
+                <time title="修改时间：2020-03-28 20:30:02" itemprop="dateModified" datetime="2020-03-28T20:30:02+08:00">2020-03-28</time>
               </span>
             
           
@@ -823,267 +1077,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>字典是python中相当于其他语言中的哈希表 即 键与值对应的数据结构。</p>
-<p>字典的 in 是看键是否在字典内 </p>
+          <h1 id="梗概"><a href="#梗概" class="headerlink" title="梗概"></a>梗概</h1><p>Trie [traɪ] 读音和 try 相同，它的另一些名字有：字典树，前缀树，单词查找树等。</p>
+<h2 id="介绍-Trie"><a href="#介绍-Trie" class="headerlink" title="介绍 Trie"></a>介绍 Trie</h2><p>Trie 是一颗非典型的多叉树模型，多叉好理解，即每个结点的分支数量可能为多个。</p>
+<p>为什么说非典型呢？因为它和一般的多叉树不一样，尤其在结点的数据结构设计上，比如一般的多叉树的结点是这样的：</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/11/02/Untitled 4/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/02/python小技巧/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="老徐">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/a.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小徐的见习日记">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/11/02/python小技巧/" class="post-title-link" itemprop="url">python小技巧</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-11-02 16:40:16" itemprop="dateCreated datePublished" datetime="2019-11-02T16:40:16+08:00">2019-11-02</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-03 00:21:35" itemprop="dateModified" datetime="2019-11-03T00:21:35+08:00">2019-11-03</time>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>两个数值对换 </p>
-<p>s[i],s[j]=s[j],s[i]</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/02/Untitled 6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="老徐">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/a.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小徐的见习日记">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/11/02/Untitled 6/" class="post-title-link" itemprop="url">python 字符串</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-11-02 16:40:16" itemprop="dateCreated datePublished" datetime="2019-11-02T16:40:16+08:00">2019-11-02</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-15 23:55:29" itemprop="dateModified" datetime="2020-02-15T23:55:29+08:00">2020-02-15</time>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>字符串翻转 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=‘abc’</span><br><span class="line"></span><br><span class="line">result=a[::-1]</span><br></pre></td></tr></table></figure>
-
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/22/Untitled 2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="老徐">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/a.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小徐的见习日记">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/22/Untitled 2/" class="post-title-link" itemprop="url">14.最长公共前缀</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-22 16:40:16" itemprop="dateCreated datePublished" datetime="2019-10-22T16:40:16+08:00">2019-10-22</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-27 23:08:47" itemprop="dateModified" datetime="2020-02-27T23:08:47+08:00">2020-02-27</time>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="题目要求："><a href="#题目要求：" class="headerlink" title="题目要求："></a>题目要求：</h4><p>编写一个函数来查找字符串数组中的最长公共前缀。</p>
-<p>如果不存在公共前缀，返回空字符串 “”。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/10/22/Untitled 2/#more" rel="contents">
+              <a class="btn" href="/2019/11/02/字典树(c++)/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1111,7 +1111,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1163,7 +1163,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1176,7 +1176,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

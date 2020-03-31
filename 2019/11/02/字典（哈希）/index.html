@@ -59,15 +59,15 @@
 <meta name="keywords" content="python函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python 字典使用">
-<meta property="og:url" content="http://yoursite.com/2019/11/02/Untitled 4/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/11/02/字典（哈希）/index.html">
 <meta property="og:site_name" content="小徐的见习日记">
 <meta property="og:description" content="字典是python中相当于其他语言中的哈希表 即 键与值对应的数据结构。 字典的 in 是看键是否在字典内">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-26T18:14:10.023Z">
+<meta property="og:updated_time" content="2020-03-27T12:24:34.896Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 字典使用">
 <meta name="twitter:description" content="字典是python中相当于其他语言中的哈希表 即 键与值对应的数据结构。 字典的 in 是看键是否在字典内">
-  <link rel="canonical" href="http://yoursite.com/2019/11/02/Untitled 4/">
+  <link rel="canonical" href="http://yoursite.com/2019/11/02/字典（哈希）/">
 
 
 <script id="page-configurations">
@@ -231,7 +231,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/02/Untitled 4/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/02/字典（哈希）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="老徐">
@@ -270,7 +270,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-27 02:14:10" itemprop="dateModified" datetime="2020-02-27T02:14:10+08:00">2020-02-27</time>
+                <time title="修改时间：2020-03-27 20:24:34" itemprop="dateModified" datetime="2020-03-27T20:24:34+08:00">2020-03-27</time>
               </span>
             
           
@@ -301,16 +301,18 @@
 <p>例如 声明一个空的字典 </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my_dic=&#123;&#125;</span><br></pre></td></tr></table></figure>
 
-<p>直接添加键值 </p>
+<p>直接添加键值 ，这说明orange为键，而2为它的值。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my_dict[orange]=2,</span><br></pre></td></tr></table></figure>
 
-<p>这说明orange为键，而2为它的值。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if not my_dict.__contains__（apple）</span><br></pre></td></tr></table></figure>
 
 <p>如果字典中没有apple 这个键</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 not in my_dict.values()</span><br></pre></td></tr></table></figure>
 
 <p>如果字典中没有2这个值</p>
+<p>如果计算一个数组中每个元素的个数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">counter=&#123;&#125;</span><br><span class="line">for i in nums:   </span><br><span class="line">	if i not in counter:</span><br><span class="line">	counter[i]=0</span><br><span class="line">	counter[i]+=1</span><br><span class="line">#在这里counter是一个空的字典里面的键与值都为空并且没有说明类型，可以用not in进行操作。</span><br></pre></td></tr></table></figure>
+
 <p>​                        </p>
 
     </div>
@@ -347,8 +349,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2020/01/04/算法头文件/" rel="prev" title="c语言algorithm头文件下常用函数">
-                  c语言algorithm头文件下常用函数 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/11/02/字典树(c++)/" rel="prev" title="Trie tree">
+                  Trie tree <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -418,7 +420,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -431,7 +433,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
